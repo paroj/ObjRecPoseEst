@@ -145,7 +145,7 @@ class NetworkTrainer(object):
         self.tvIndex = T.lscalar()  # index to a [mini]batch
         #self.tvIndex.tag.test_value = 10
         self.tvX = self.descrNet.inputVar
-        
+     
         # targets
         self.tvY = T.ivector('y')
         self.tvYr = T.tensor4('yr')

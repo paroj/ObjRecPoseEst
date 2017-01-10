@@ -219,8 +219,6 @@ class DagNetwork(Network):
             inputVar = []           
             for inputLayerCfg in self.cfgParams.inputLayerCfgs:
                 inputVar.append(T.tensor4('x_'.format(inputLayerCfg.name)))    # input variable
-        if len(inputVar) == 1:
-            inputVar = inputVar[0]
            
         self.inputVar = inputVar
        
