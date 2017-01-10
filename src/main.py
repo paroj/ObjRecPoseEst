@@ -183,6 +183,7 @@ def createTripleAndPairsDatasetFromImgSeq(tmplSeqs,trainSeqs,inputMode=0,batchSi
     print("*********************************************************************")
     
     floatX = theano.config.floatX  # @UndefinedVariable
+    assert floatX == "float32", "set floatX to float32 in your .theanorc. Required for using the GPU."
     
     #numSeqs = len(tmplSeqs)
     seqNames = tmplSeqs.keys() 
