@@ -56,7 +56,7 @@ class LinemodImporter(object):
                 
         elif ext == ".png":
             
-            data = cv2.imread(filename,cv2.CV_LOAD_IMAGE_UNCHANGED).astype(numpy.float32) / 10.
+            data = cv2.imread(filename,cv2.IMREAD_UNCHANGED).astype(numpy.float32) / 10.
             
         else:
             raise ValueError("Unkown depth image file format '{}'".format(ext))
@@ -415,14 +415,14 @@ class LinemodTrainDataImporter(object):
             
             #dptRendered = Image.open(dptFileName)
             #dptrData = numpy.asarray(dptRendered,numpy.float32)
-            dptrData = cv2.imread(dptFileName,cv2.CV_LOAD_IMAGE_UNCHANGED).astype(numpy.float32)
+            dptrData = cv2.imread(dptFileName,cv2.IMREAD_UNCHANGED).astype(numpy.float32)
             if len(dptrData.shape) > 2:
                 dptrData = dptrData[:,:,0] 
             
             dptrData *= 200./2**16.  # first in blender we expressed everything in dm (ie 1unit = 10cm), then we mapped 0..20 -> 0..1, then blender fills the the 16bit up. image is scaled to 0..1 -> 0..2^16
                         
                         
-            maskData = cv2.imread(maskFileName,cv2.CV_LOAD_IMAGE_UNCHANGED).astype(numpy.float32)
+            maskData = cv2.imread(maskFileName,cv2.IMREAD_UNCHANGED).astype(numpy.float32)
             #print("maskData mn/mx {},{}".format(numpy.min(maskData),numpy.max(maskData)))
             #cv2.imshow("maskData",maskData/(2**16.))
             #raise ValueError("ok")
