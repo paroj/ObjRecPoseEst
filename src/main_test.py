@@ -574,12 +574,11 @@ def linemod_test_main(fileName=None,cfg=None):
     # wait for quit
     
     if showPlots:
-        cv2.waitKey(10)
-        plt.show(block=True)
-    
         ch = 0
+        plt.show(block=False)
+        print("waiting for 'q'")
         while ((ch & 0xFF) != ord('q')) and (ch >= 0):
-            print("waiting for 'q'")
+
             ch = cv2.waitKey() 
             print(" ... got '{}' ({})".format(chr(ch & 0xFF),ch))
         
