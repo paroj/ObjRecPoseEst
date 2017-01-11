@@ -448,7 +448,11 @@ class Network(object):
         self.tvIndex = T.lscalar()
         print("compiling compute_descr() ...",end="")
         if isinstance(self.inputVar,list):
-            givens_comp_descr = { iv: data[self.tvIndex * batch_size:(self.tvIndex + 1) * batch_size] for (iv,data) in zip(self.inputVar,dataManager.tvsData_x) }
+            tvsData_x = dataManager.tvsData_x
+            if not isinstance(tvsData_x,list):
+                tvsData_x = [tvsData_x]
+            
+            givens_comp_descr = { iv: data[self.tvIndex * batch_size:(self.tvIndex + 1) * batch_size] for (iv,data) in zip(self.inputVar,tvsData_x) }
         else:
             givens_comp_descr = { self.inputVar: dataManager.tvsData_x[self.tvIndex * batch_size:(self.tvIndex + 1) * batch_size] }
         self.tfComputeDescr = theano.function(inputs = [self.tvIndex],
