@@ -3,11 +3,14 @@ Created on Apr 30, 2015
 
 @author: wohlhart
 '''
+import matplotlib
+matplotlib.use('Qt5Agg')
+
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  # @UnresolvedImport @UnusedImport
 from util.matplotlib2tikz import save as tikz_save
 
-import time, os, glob, gc, cPickle, sys
+import time, os, glob, cPickle, sys
 
 import theano
 import numpy
