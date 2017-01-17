@@ -52,7 +52,7 @@ class BatchedImgSeqDataset(BatchedDataset):
             print("nChan, patchH, patchW {},{},{}".format(nChan,patchH,patchW))
         
         #nChan = getNChanFromInputMode(inputMode)
-        numBatches = numpy.ceil(float(totalNumImgs)/float(batchSize))
+        numBatches = (totalNumImgs + batchSize - 1)//batchSize # integer ceil
         allData = [numpy.zeros((numBatches*batchSize,nChan,patchH,patchW),dtype=floatX) for nChan in nChans]
         allLabels = -numpy.ones((numBatches*batchSize,),dtype=numpy.int32)  # unused space in last minibatch must be filled with label=-1
         allRots = numpy.zeros((numBatches*batchSize,3),dtype=numpy.float32)

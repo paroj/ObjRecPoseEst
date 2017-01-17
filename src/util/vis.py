@@ -1266,7 +1266,7 @@ def visWrongestClosestTmpls(testdata_set, tmpl_set, dst, sim, fileName=None, sho
         sampIdx = minSimIdx[j]
 
         cx = numpy.mod(j,nCols)
-        cy = numpy.floor(j/nCols)
+        cy = j//nCols
         px = cx*(2*w+border)
         py = cy*(h + border)
         
