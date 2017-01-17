@@ -9,7 +9,7 @@ import scipy.stats
 
 import theano
 import theano.tensor as T
-from theano.tensor.signal import downsample
+from theano.tensor.signal import pool
 from theano.tensor.nnet import conv
 from tnetcore.layers.base import LayerParams, Layer
 from tnetcore.util import readCfgIntNoneListParam, readCfgIntParam,\
@@ -314,8 +314,8 @@ class ConvPoolLayer(Layer):
             pooled_out = conv_out
         elif poolType == 0:
             #using maxpooling
-            pooled_out = downsample.max_pool_2d(input=conv_out,
-                                                ds=poolsize, ignore_border=True)
+            pooled_out = pool.pool_2d(input=conv_out,
+                                      ds=poolsize, ignore_border=True)
         #elif poolType == 1:  # TODO: this is not so easy. how do i calc the mean over 2x2 instead of the max? the max_pool_2d above uses a quite sophisticated operator 
         #theano.tensor.nnet.conv3d2d.conv3d
         #    pooled_out = conv2d(input = conv_out,

@@ -3,7 +3,7 @@ Created on Feb 18, 2015
 
 @author: wohlhart
 '''
-from theano.tensor.signal import downsample
+from theano.tensor.signal import pool
 from tnetcore.layers.base import LayerParams, Layer
 from tnetcore.util import readCfgIntNoneListParam, readCfgIntParam  # @UnresolvedImport
 
@@ -117,8 +117,8 @@ class PoolLayer(Layer):
         self.inputVar = inputVar
 
         if poolType == 0:
-            pooled_out = downsample.max_pool_2d(input = inputVar,
-                                                ds = poolsize, ignore_border=True)
+            pooled_out = pool.pool_2d(input = inputVar,
+                                      ds = poolsize, ignore_border=True)
 
         self.output = pooled_out
 
