@@ -302,8 +302,10 @@ def createTripleAndPairsDatasetFromImgSeq(tmplSeqs,trainSeqs,inputMode=0,batchSi
     batchMaxSimTmplIdx = numpy.zeros((batchSize,),dtype=numpy.int32)
     batchSampIdx = numpy.zeros((batchSize,),dtype=numpy.int32)  # index of the training samples and tmpls that landed in the batch
     batchRots = numpy.zeros((batchSize,3),dtype=numpy.float32)
-         
-    maxNumBatches = numpy.ceil((3*numTrainPerClass*numClasses)/float(batchSize))  # maximally every trainSample and its closest tmpl + one random -> 3*numSamples/batchSize
+    
+    # maximally every trainSample and its closest tmpl + one random -> 3*numSamples/batchSize     
+    maxNumBatches = (3*numTrainPerClass*numClasses + batchSize - 1)//batchSize # integer ceil
+    
     allData = [numpy.zeros((maxNumBatches*batchSize,nChan,imgH,imgW),dtype=floatX) for nChan in nChans]
     allLabels = numpy.zeros((maxNumBatches*batchSize,),dtype=numpy.int32)
     allTripletIdx = numpy.zeros((maxNumBatches*nTripletsPerBatch,3),dtype=numpy.int32)
