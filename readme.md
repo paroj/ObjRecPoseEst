@@ -14,7 +14,7 @@ or more precisely a refactored but functionally equivalent version thereof.
 Thus far, there is _no_ documentation, except for the sporadic, cryptic comments in the code.
 As soon as people start using this code and get back to me with questions, 
 I will try to assemble a combination of tutorial and FAQ at the project website: 
-https://www.tugraz.at/institute/icg/teams/teamlepetit/research/object-detection-and-3d-pose-estimation/
+https://www.tugraz.at/institute/icg/research/team-lepetit/research-projects/object-detection-and-3d-pose-estimation/
 
 
 Additionally, I would like to make you aware of the efforts by Yida Wang to implement the 
@@ -57,7 +57,7 @@ if the whole training set (in addition to the network itself) is too large to fi
 
 3. You need my version of the LineMOD data  
 Download the data from our project page
-https://www.tugraz.at/institute/icg/teams/teamlepetit/research/object-detection-and-3d-pose-estimation/  
+https://www.tugraz.at/institute/icg/research/team-lepetit/research-projects/object-detection-and-3d-pose-estimation/  
 Additionally you need the color images (colorXXX.jpg) of the 
 test sequences from the original LineMOD dataset: 
 http://campar.in.tum.de/Main/StefanHinterstoisser
