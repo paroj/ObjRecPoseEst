@@ -204,9 +204,9 @@ def visFilterMontageOfLayer(wvals,fileName=None,windowName=None):
 #     print("targetAspect = {}".format(targetAspect))
 #     print("numFilters = {}".format(numFilters))
 
-    numCols = numpy.floor(numpy.sqrt(numFilters * targetAspect/filterAspect))
+    numCols = int(numpy.sqrt(numFilters * targetAspect/filterAspect))
     numCols = numpy.maximum(numCols,1)
-    numRows = numpy.ceil(numFilters/float(numCols))
+    numRows = (numFilters + numCols - 1)//numCols # integer ceil
     
 #     print("numCols = {}".format(numCols))
 #     print("numRows = {}".format(numRows))
