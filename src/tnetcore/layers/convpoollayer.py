@@ -10,7 +10,7 @@ import scipy.stats
 import theano
 import theano.tensor as T
 from theano.tensor.signal import pool
-from theano.tensor.nnet import conv
+from theano.tensor import nnet as conv
 from tnetcore.layers.base import LayerParams, Layer
 from tnetcore.util import readCfgIntNoneListParam, readCfgIntParam,\
     readCfgBooleanParam

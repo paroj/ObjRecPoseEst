@@ -195,7 +195,7 @@ class NetworkTrainer(object):
             if version == 'v2':
                 self.pair_neg_margin = 0.6
                 eps = 1e-6
-                pair_cost = self.tvPairLabels*pair_distance_sq + (1-self.tvPairLabels)*T.sqr(T.maximum(0,self.pair_neg_margin - T.sqrt(pair_distance_sq+eps)))                
+                pair_cost = self.tvPairLabels.ravel()*pair_distance_sq.ravel() + ((1-self.tvPairLabels).ravel()*T.sqr(T.maximum(0,self.pair_neg_margin - T.sqrt(pair_distance_sq+eps))).ravel()).ravel()               
                 self.cost += pair_cost.mean() 
                 
                 # TODO: how do we compute p_equal in this case?
