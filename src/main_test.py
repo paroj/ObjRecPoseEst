@@ -97,6 +97,7 @@ def loadTmplSeqsBatchedDataset(lmDataBasepath ,targetSize = 64, batchSize = 300,
         #   * create batched dataset
         imgSeqs = []
         #totalNumImgs = 0
+        seqNames = sorted(seqNames) # seq names must be sorted to match testimages
         for i in xrange(len(seqNames)):
             seqN = seqNames[i]
             zri = zRotInv[i]
